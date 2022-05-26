@@ -19,12 +19,18 @@ In Typer Drive, players will be able to:
 
 ## Wireframes
 
-The game will mostly take up the player's browser tab. 
+The game will mostly take up the player's browser tab in the following format. 
+
+[Note-to-Draft: Wireframe Picture](#)
+<img src="#" />
 
 ## Architecture and Technologies
 
 The project was implemented using the following technologies:
-- Javascript: Game Logic
-- Canvas: Game Rendering
-- Webpack: JavaScript File Bundling
+- Javascript: For game logic
+- Canvas: For game rendering and animations
+- Webpack: For JavaScript file bundling
 
+
+## Music
+Music Credits:
