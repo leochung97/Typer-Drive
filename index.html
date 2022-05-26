@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+  <html lang="en">
+  
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="styles.css">
+
+    <title>Typer Drive</title>
+  </head>
+  
+  <body>
+
+    <!-- Title -->
+    <div>
+      <h1 class="title">Typer Drive</h1>
+      <h3 class="createdby">Created by Leo Chung</h3>
+    </div>
+    
+    <!-- Personal Links -->
+    <div class="links">
+      <a href="https://github.com/leochung97" target="_blank">
+        <img src="./assets/github.png" alt="github-profile">
+      </a>
+    
+      <a href="https://www.linkedin.com/in/swchung/" target="_blank">
+        <img src="./assets/linkedin.png" alt="linkedin-profile">
+      </a>
+    </div>
+    
+    <!-- Game Menu -->
+    <div class="game-start">    
+      <form id="start-button">
+        <input type="submit" value="New Game">
+      </form>
+    </div>
+
+    <!-- Canvas Elements -->
+    <div class="container-canvas">
+      <div class="health-canvas">
+        <div class="player-health-canvas"></div>
+        <div class="space-health-canvas"></div>
+        <div class="enemy-health-canvas"></div>
+      </div>
+      <canvas></canvas>
+    </div>
+
+    <source src="index.js">
+  </body>
+</html>
+

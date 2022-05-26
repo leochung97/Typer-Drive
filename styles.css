@@ -1,0 +1,74 @@
+.title {
+  display: block;
+}
+
+.createdby {
+  display:block;
+}
+
+body {
+  overflow: hidden;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: honeydew;
+  margin: 0;
+}
+
+.game-start {
+  margin: 5px;
+}
+
+.container-canvas {
+  display: inline-flex;
+  position: relative;
+}
+
+.health-canvas {
+  position: absolute;
+  display: flex;
+  width: 100%;
+}
+
+.player-health-canvas {
+  background-color: yellow;
+  margin-top: 10px;
+  margin-left: 10px;
+  height: 40px;
+  width: 50%;
+}
+
+.space-health-canvas {
+  background-color: white;
+  margin-top: 10px;
+  margin-left: 10px;
+  height: 40px;
+  width: 200px;
+  flex-shrink: 0;
+}
+
+.enemy-health-canvas {
+  background-color: red;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  height: 40px;
+  width: 100%;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.links img {
+  height: 50px;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.links img:hover {
+  transform: scale(1.2);
+}
