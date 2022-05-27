@@ -5,6 +5,6 @@ class Sprite {
 
   draw() {
     c.fillStyle = 'red'
-    c.fillRect(this.position.x, this.position.y, 50, 150);
+    c.fillRect(this.position.x, this.position.y, 300, 200);
   }
 }

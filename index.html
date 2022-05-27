@@ -35,18 +35,15 @@
     
     <!-- Game Menu -->
     <div class="game-menu">
-      <div class="game-instructions">
+      <div class="game-box">
         <button id="instructions-button">Instructions</button>
       </div>
-
-      <div class="game-start">
+      <div class="game-box">
         <button id="start-button">Start Game</button>
       </div>
-      
-      <audio id="game-music" loop src="/assets/music.mp3"></audio>
-      <div class="game-audio">
-        <button id="mute-button">Mute</button>
-        <input type="range" id="volume" value="100">
+      <audio autoplay id="game-music" src="./assets/music.mp3" type="audio/mpeg"></audio>
+      <div class="game-box">
+        <button id="mute-button" onclick="muteAudio">Mute</button>
       </div>
     </div>
     
@@ -60,7 +57,7 @@
       <canvas></canvas>
     </div>
 
-    <script src="./src/index.js"></script>
+    <script type="module" src="./src/index.js"></script>
   </body>
 </html>
 

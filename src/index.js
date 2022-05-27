@@ -1,6 +1,6 @@
-import Game from "./scripts/game"
-import Music from "./scripts/music"
-import Sprite from "./scripts/sprite"
+// import Game from "./scripts/game"
+import Music from "./scripts/music.js"
+// import Sprite from "./scripts/sprite"
 
 document.addEventListener("DOMContentLoaded", function() {  
   
@@ -13,13 +13,13 @@ document.addEventListener("DOMContentLoaded", function() {
   c.fillStyle = "gray";
   c.fillRect(0, 0, canvas.width, canvas.height);
 
-  let game = new Game();
-  game.render();
-  game.addEventListeners();
+  // let game = new Game();
+  // game.render();
+  // game.addEventListeners();
 
   let music = new Music();
   music.addEventListeners();
 });
 
-const test_player = new Sprite({x: 312, y: 300});
-test_player.draw();
+// const test_player = new Sprite({x: 312, y: 300});
+// test_player.draw();

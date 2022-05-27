@@ -13,7 +13,6 @@ input[type="reset"] {
 .game-menu {
   margin: 5px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   margin-left: auto;
   margin-right: auto;
@@ -22,51 +21,35 @@ input[type="reset"] {
   color: white;
 }
 
-/* INSTRUCTIONS */
-#instructions-button {
+.game-box {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.game-box > button {
   padding: 2px;
 }
 
-#instructions-button:hover {
+.game-box > button:hover {
   cursor: pointer;
   padding: 2px;
   color: white;
   background-color: cornflowerblue;
+}
+
+/* INSTRUCTIONS */
+#instructions-button {
+  margin-right: auto;
 }
 
 /* START GAME */
 #start-button {
-  padding: 2px;
-}
-
-#start-button:hover {
-  cursor: pointer;
-  padding: 2px;
-  color: white;
-  background-color: cornflowerblue;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* AUDIO */
-.game-audio {
-  border: none;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  background-color: transparent;
-}
-
-#volume {
-  margin-top: 4px;
-  width: 75px;
-}
-
-.game-audio button {
-  padding: 2px;
-}
-
-.game-audio button:hover {
-  cursor: pointer;
-  padding: 2px;
-  color: white;
-  background-color: cornflowerblue;
+#mute-button {
+  margin-left: auto;
 }
