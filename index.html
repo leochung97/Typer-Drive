@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&family=VT323&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./src/index.css">
     <script src="./dist/main.js"></script>
 
@@ -34,22 +36,17 @@
     <!-- Game Menu -->
     <div class="game-menu">
       <div class="game-instructions">
-        <form action="instructions-button">
-          <input type="submit" value="Instructions">
-        </form>
+        <button id="instructions-button">Instructions</button>
       </div>
 
       <div class="game-start">
-        <form id="start-button">
-          <input type="submit" value="New Game">
-        </form>
+        <button id="start-button">Start Game</button>
       </div>
       
-      <label for="game-sound">Sound: </label>
-      <div class="game-sound">
-        <form action="game-sounds">
-          <input type="range" value="Sound">
-        </form>
+      <audio id="game-music" loop src="/assets/music.mp3"></audio>
+      <div class="game-audio">
+        <button id="mute-button">Mute</button>
+        <input type="range" id="volume" value="100">
       </div>
     </div>
     

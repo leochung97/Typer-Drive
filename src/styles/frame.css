@@ -4,8 +4,20 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: honeydew;
+  background-color: black;
   margin: 0;
+  font-family: 'VT323';
+  color: white;
+}
+
+.title {
+  font-size: 60px;
+  margin: 2px 2px 2px 2px;
+}
+
+.createdby {
+  font-size: 24px;
+  margin: 5px 5px 5px 5px;
 }
 
 .links {
@@ -15,9 +27,11 @@ body {
 }
 
 .links img {
-  height: 50px;
+  height: 20px;
   cursor: pointer;
-  margin: 5px;
+  margin: 5px 5px 5px 5px;
+  padding-left: 22px;
+  padding-right: 22px
 }
 
 .links img:hover {

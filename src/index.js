@@ -7,9 +7,10 @@ document.addEventListener("DOMContentLoaded", function() {
   const canvas = document.querySelector('canvas');
   const c = canvas.getContext('2d');
 
-  canvas.width = 1200;
-  canvas.height = 600;
+  canvas.width = 1080;
+  canvas.height = 550;
 
+  c.fillStyle = "gray";
   c.fillRect(0, 0, canvas.width, canvas.height);
 
   let game = new Game();
