@@ -21,7 +21,7 @@ In Typer Drive, players will be able to:
 
 The game will mostly take up the player's browser tab in the following format. 
 
-![Wireframe](https://github.com/leochung97/Typer-Drive/blob/main/Wireframe.png)
+![Wireframe](https://github.com/leochung97/Typer-Drive/blob/main/assets/Wireframe.png)
 
 ## Architecture and Technologies
 
