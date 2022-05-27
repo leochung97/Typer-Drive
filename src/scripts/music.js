@@ -1,23 +1,11 @@
 export default class Music {
   constructor() {
     this.music = document.querySelector("#game-music");
-    this.volume = document.querySelector("#volume");
     this.toggle = document.querySelector("#mute-button");
     this.muted = true;
-    this.music.volume = 0.05;
-  }
-
-  muteAudio() {
-    if (!this.muted) {
-      this.music.pause();
-      this.toggle.innerText = "Unmute";
-      this.muted = true;
-    } else {
-      this.music.play();
-      this.toggle.innerText = "Mute";
-      this.muted = false;
-    }
-  }
+    // NOTE TO DRAFT: CHANGE VOLUME HIGHER FOR PRODUCTION
+    this.music.volume = 0.01;
+  };
 
   addEventListeners() {
     this.toggle.addEventListener("click", (e) => {
@@ -32,5 +20,5 @@ export default class Music {
         this.muted = false;
       }
     });
-  }
+  };
 }

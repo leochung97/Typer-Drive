@@ -15,6 +15,7 @@
   margin-left: 10px;
   height: 40px;
   width: 100%;
+  color: black;
 }
 
 .space-health-canvas {
@@ -33,4 +34,5 @@
   margin-right: 10px;
   height: 40px;
   width: 100%;
+  color: black;
 }
