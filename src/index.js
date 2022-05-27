@@ -2,6 +2,8 @@
 import Music from "./scripts/music.js"
 // import Sprite from "./scripts/sprite"
 
+const randomWords = require('random-words');
+
 document.addEventListener("DOMContentLoaded", function() {  
   
   const canvas = document.querySelector('canvas');
@@ -20,6 +22,8 @@ document.addEventListener("DOMContentLoaded", function() {
   let music = new Music();
   music.addEventListeners();
 });
+
+console.log(randomWords());
 
 // const test_player = new Sprite({x: 312, y: 300});
 // test_player.draw();
