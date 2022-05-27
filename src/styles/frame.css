@@ -1,0 +1,25 @@
+body {
+  overflow: hidden;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: honeydew;
+  margin: 0;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.links img {
+  height: 50px;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.links img:hover {
+  transform: scale(1.2);
+}
