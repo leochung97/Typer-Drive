@@ -1,13 +1,15 @@
-import Dictionary from "./dictionary"
+const randomWords = require('random-words')
 
 export default class Word {
   constructor() {
-    this.word = getWord();
+    this.word = randomWords();
     this.split = this.word.split('');
-    this.answer = [];   
+    this.answer = [];
   }
 
-  getWord() {
-    return Dictonary[Math.floor(Math.random() * Dictionary.length)]
+  check() {
+    if (this.answer.length === this.split.length) {
+      return this.answer === this.split;
+    };
   }
 }
