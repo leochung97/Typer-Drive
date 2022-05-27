@@ -30,7 +30,14 @@ The project was implemented using the following technologies:
 - Javascript: For game logic
 - Canvas: For game rendering and animations
 - Webpack: For JavaScript file bundling
+- NPM: For managing project dependencies
 
+## Implementation Timeline
+
+- Friday & Weekend: Setup project, including getting webpack up and running.
+Implement underlying logic of game.
+- Monday & Tuesday: Implement animations and finalize visuals of the game.
+- Wednesday: Add any additional features or finalize remaining MVPs.
 
 ## Music
 Music Credits:

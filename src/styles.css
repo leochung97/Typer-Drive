@@ -1,11 +1,3 @@
-.title {
-  display: block;
-}
-
-.createdby {
-  display:block;
-}
-
 body {
   overflow: hidden;
   text-align: center;
@@ -36,15 +28,15 @@ body {
   margin-top: 10px;
   margin-left: 10px;
   height: 40px;
-  width: 50%;
+  width: 100%;
 }
 
 .space-health-canvas {
-  background-color: white;
+  background-color: black;
   margin-top: 10px;
   margin-left: 10px;
   height: 40px;
-  width: 200px;
+  width: 300px;
   flex-shrink: 0;
 }
 
