@@ -1,7 +1,5 @@
 import Game from "./scripts/game.js"
-import Input from "./scripts/input.js";
 import Music from "./scripts/music.js"
-// import Sprite from "./scripts/sprite"
 
 document.addEventListener("DOMContentLoaded", function() {  
   
@@ -11,15 +9,15 @@ document.addEventListener("DOMContentLoaded", function() {
   canvas.width = 1080;
   canvas.height = 550;
 
-  c.fillStyle = "gray";
-  c.fillRect(0, 0, canvas.width, canvas.height);
+  let background = new Image();
+  background.src = "../assets/background.png"
+  background.onload = function() {
+    c.drawImage(background, -1510, -150)
+  }
 
   let game = new Game();
   game.addEventListeners();
 
   let music = new Music();
   music.addEventListeners();
-
-  let input = new Input();
-  input.addEventListeners();
 });

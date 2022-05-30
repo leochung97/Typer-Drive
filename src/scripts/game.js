@@ -3,13 +3,12 @@ import Input from "./input.js"
 import Level from "./level.js"
 
 export default class Game {
-  constructor() {
+  constructor(c) {
     this.input = document.querySelector("#input");
     this.word = document.querySelector("#word");
     this.start = document.querySelector("#start-button");
     this.started = false;
     this.currentLevel = 1;
-    this.newword = this.newword.bind(this);
   }
 
   newword() {
@@ -23,12 +22,14 @@ export default class Game {
         this.start.innerText = "Restart"
         this.started = true;
         this.newword();
+        this.input.placeholder = "Type Here!"
         this.currentLevel = 1;
         this.startLevel(this.currentLevel)
       } else {
         this.start.innerText = "Restart"
         this.started = true;
         this.newword();
+        this.input.placeholder = "Type Here!"
         this.currentLevel = 1;
         this.startLevel(this.currentLevel)
       }
@@ -50,7 +51,7 @@ export default class Game {
 
   startLevel(level) {
     if (this.started) {
-      console.log("Generate word and start typing!")
+      const currentlevel = new Level(level)
     }
   }
 }

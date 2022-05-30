@@ -1,4 +1,4 @@
-/* CSS RESET FOR TEXT INPUT FORM */
+/* Text Input Form CSS Reset */
 input {
   border: none;
   background-image: none;
@@ -65,13 +65,33 @@ input:focus {
   width: 100%;
 }
 
-.player-health-canvas {
-  background-color: yellow;
+.player-health-bar {
+  box-sizing: border-box;
   margin-top: 10px;
   margin-left: 10px;
+  width: 400px;
   height: 40px;
+  background: darkgray;
+  position: relative;
+}
+
+.player-bar {
+  background: yellow;
   width: 100%;
+  height: 40px;
+  position: relative;
+  transition: width .5s linear;
   color: black;
+}
+
+.player-hit {
+  background: rgba(255, 255, 255, 0.6);
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 0px;
+  transition: width .5s linear;
 }
 
 .space-health-canvas {
@@ -83,12 +103,30 @@ input:focus {
   flex-shrink: 0;
 }
 
-.enemy-health-canvas {
-  background-color: red;
+.enemy-health-bar {
+  box-sizing: border-box;
   margin-top: 10px;
-  margin-left: 10px;
   margin-right: 10px;
+  width: 400px;
   height: 40px;
+  background: darkgray;
+  position: relative;
+}
+
+.enemy-bar {
+  background: red;
   width: 100%;
-  color: black;
+  height: 40px;
+  position: relative;
+  transition: width .5s linear;
+}
+
+.enemy-hit {
+  background: rgba(255, 255, 255, 0.6);
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 0px;
+  transition: width .5s linear;
 }

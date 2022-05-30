@@ -52,14 +52,24 @@
     <!-- Canvas Elements -->
     <div class="container-canvas">
       <div class="health-canvas">
-        <div class="player-health-canvas">PLAYER HP</div>
+        <div class="player-health-bar" data-total="100" data-value="100">
+          <div class="player-bar">
+            PLAYER HP
+            <div class="player-hit"></div>
+          </div>
+        </div>
         <div class="space-health-canvas"></div>
-        <div class="enemy-health-canvas">ENEMY HP</div>
+        <div class="enemy-health-bar" data-total="100" data-value="100">
+          <div class="enemy-bar">
+            ENEMY HP
+            <div class="enemy-hit"></div>
+          </div>
+        </div>
       </div>
       
       <!-- Typing Input -->
       <div id="word"></div>
-      <input id="input" type="text" placeholder="Type Here!" maxlength="16">
+      <input id="input" type="text" maxlength="16">
       <canvas></canvas>
     </div>
 
