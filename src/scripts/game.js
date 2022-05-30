@@ -1,30 +1,34 @@
 import Dictionary from "./dictionary.js";
 import Input from "./input.js"
+import Level from "./level.js"
 
 export default class Game {
   constructor() {
     this.input = document.querySelector("#input");
+    this.word = document.querySelector("#word");
     this.start = document.querySelector("#start-button");
     this.started = false;
     this.currentLevel = 1;
-    this.newWord = this.newWord.bind(this);
+    this.newword = this.newword.bind(this);
   }
 
-  newWord() {
+  newword() {
     let newword = Dictionary[Math.floor(Math.random() * Dictionary.length)];
-    document.querySelector("#word").innerText = newword;
+    this.word.innerText = newword;
   }
 
   addEventListeners() {
-    this.start.addEventListener("click", (listener) => {
+    this.start.addEventListener("click", (event) => {
       if (!this.started) {
         this.start.innerText = "Restart"
         this.started = true;
+        this.newword();
         this.currentLevel = 1;
         this.startLevel(this.currentLevel)
       } else {
         this.start.innerText = "Restart"
         this.started = true;
+        this.newword();
         this.currentLevel = 1;
         this.startLevel(this.currentLevel)
       }
@@ -37,9 +41,9 @@ export default class Game {
     const inputs = new Input()
     if (e.keyCode === 13) {
       if (inputs.check()) {
+        this.value = "";
         let newword = Dictionary[Math.floor(Math.random() * Dictionary.length)];
         document.querySelector("#word").innerText = newword;
-        this.value = "";
       }
     }
   }

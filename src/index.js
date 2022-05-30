@@ -16,8 +16,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   let game = new Game();
   game.addEventListeners();
-  game.newWord();
-  
+
   let music = new Music();
   music.addEventListeners();
 
