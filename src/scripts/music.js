@@ -3,12 +3,11 @@ export default class Music {
     this.music = document.querySelector("#game-music");
     this.toggle = document.querySelector("#mute-button");
     this.muted = true;
-    // NOTE TO DRAFT: CHANGE VOLUME HIGHER FOR PRODUCTION
     this.music.volume = 0.01;
   };
 
   addEventListeners() {
-    this.toggle.addEventListener("click", (e) => {
+    this.toggle.addEventListener("click", (listener) => {
       if (!this.muted) {
         this.music.currentTime = 0;
         this.music.play();

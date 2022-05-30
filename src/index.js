@@ -1,8 +1,7 @@
-// import Game from "./scripts/game"
+import Game from "./scripts/game.js"
+import Input from "./scripts/input.js";
 import Music from "./scripts/music.js"
 // import Sprite from "./scripts/sprite"
-
-const randomWords = require('random-words');
 
 document.addEventListener("DOMContentLoaded", function() {  
   
@@ -15,15 +14,15 @@ document.addEventListener("DOMContentLoaded", function() {
   c.fillStyle = "gray";
   c.fillRect(0, 0, canvas.width, canvas.height);
 
-  // let game = new Game();
-  // game.render();
-  // game.addEventListeners();
+  let game = new Game();
+  game.addEventListeners();
 
   let music = new Music();
   music.addEventListeners();
-});
 
-console.log(randomWords());
+  let input = new Input();
+  input.addEventListeners();
+});
 
 // const test_player = new Sprite({x: 312, y: 300});
 // test_player.draw();

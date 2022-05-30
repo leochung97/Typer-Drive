@@ -1,6 +1,48 @@
+/* CSS RESET FOR TEXT INPUT FORM */
+input {
+  border: none;
+  background-image: none;
+  background-color: transparent;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+input:focus {
+  border: none;
+  background-image: none;
+  background-color: transparent;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  outline: none;
+}
+
 .container-canvas {
   display: inline-flex;
   position: relative;
+}
+
+#input {
+  font-family: 'VT323';
+  display: block;
+  position: absolute;
+  width: 400px;
+  text-align: center;
+  top: 45%;
+  left: 50%;
+  margin-left: -200px;
+  font-size: xx-large;
+  color: white;
+}
+
+::placeholder {
+  color: white;
+  opacity: 50%;
+}
+
+#input:hover {
+  cursor: pointer;
 }
 
 .health-canvas {

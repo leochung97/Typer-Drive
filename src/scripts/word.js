@@ -1,8 +1,6 @@
-const randomWords = require('random-words')
-
 export default class Word {
   constructor() {
-    this.word = randomWords();
+    this.word = "Hello"
     this.split = this.word.split('');
     this.answer = [];
   }

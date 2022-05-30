@@ -1,23 +1,33 @@
 import Input from "./input"
-import Word from "./word"
 
 export default class Game {
   constructor() {
-    this.inputs = new Input()
-    this.current_word = new Dictionary()
-    this.newgame = document.querySelector("#start-button")
+    this.input = new Input()
+    // this.current_word = new Dictionary()
+    this.start = document.querySelector("#start-button")
     this.started = false;
+    this.currentLevel = 1;
   }
 
   addEventListeners() {
-    this.newgame.addEventListener("click", (listener) => {
+    this.start.addEventListener("click", (listener) => {
       if (!this.started) {
-        this.newgame.innerText = "Restart"
+        this.start.innerText = "Restart"
         this.started = true;
+        this.currentLevel = 1;
+        this.startLevel(this.currentLevel)
       } else {
-        this.newgame.innerText = "Restart"
+        this.start.innerText = "Restart"
         this.started = true;
+        this.currentLevel = 1;
+        this.startLevel(this.currentLevel)
       }
-    });ß
+    });
+  }
+
+  startLevel(level) {
+    if (this.started) {
+      console.log("Generate word and start typing!")
+    }
   }
 }
