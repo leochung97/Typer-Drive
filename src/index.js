@@ -16,13 +16,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
   let game = new Game();
   game.addEventListeners();
-
+  game.newWord();
+  
   let music = new Music();
   music.addEventListeners();
 
   let input = new Input();
   input.addEventListeners();
 });
-
-// const test_player = new Sprite({x: 312, y: 300});
-// test_player.draw();

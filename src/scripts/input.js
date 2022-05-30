@@ -1,21 +1,20 @@
-// import Word from "./word.js"
-
 export default class Input {
-  constructor(level) {
-    this.level = level;
+  constructor() {
     this.input = document.querySelector("#input")
-    this.typed = "";
   }
 
-  handler(e) {
-    this.typed += e;
-    console.log(this.typed)
+  check() {
+    let word = document.querySelector("#word")
+    let correct = false;
+    if (input.value === word.innerText) {
+      correct = true;
+    } else {
+      correct = false;
+    }
+    return correct;
   }
 
   addEventListeners() {
-    this.input.addEventListener("keyup", this.handler);
-    this.input.addEventListener("keydown", this.handler);
-    this.input.addEventListener("keypress", this.handler);
+    this.input.addEventListener("keyup", this.check);
   }
-
 }

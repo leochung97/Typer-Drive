@@ -3,7 +3,8 @@ export default class Music {
     this.music = document.querySelector("#game-music");
     this.toggle = document.querySelector("#mute-button");
     this.muted = true;
-    this.music.volume = 0.01;
+    // Note-to-draft: Turn music back on for production
+    this.music.volume = 0;
   };
 
   addEventListeners() {
