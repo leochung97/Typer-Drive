@@ -3,6 +3,7 @@ import Input from "./input.js"
 import Level from "./level.js";
 
 let currentlvl = 1;
+let intervals = [];
 
 export default class Game {  
   constructor(c) {
@@ -11,6 +12,8 @@ export default class Game {
     this.start = document.querySelector("#start-button");
     this.playerbar = document.querySelector(".player-health-bar");
     this.enemybar = document.querySelector(".enemy-health-bar");
+    this.playerhealth = document.querySelector(".player-bar")
+    this.enemyhealth = document.querySelector(".enemy-bar")
     this.started = false;
   }
 
@@ -24,22 +27,22 @@ export default class Game {
       if (!this.started) {
         this.start.innerText = "Restart"
         this.started = true;
-        this.newword();
-        this.input.placeholder = "Type Here!";
-        this.playerbar.style.display = "block";
-        this.enemybar.style.display = "block";
-        currentlvl = 1
-        const level = new Level(1);
+        intervals.forEach(clearInterval);
       } else {
         this.start.innerText = "Restart"
         this.started = true;
-        this.newword();
-        this.playerbar.style.display = "block";
-        this.enemybar.style.display = "block";
-        this.input.placeholder = "Type Here!";
-        const level = new Level(1);
-        currentlvl = 1;
+        intervals.forEach(clearInterval);
       }
+      
+      this.newword();
+      this.input.placeholder = "Type Here!";
+      this.playerbar.style.display = "block";
+      this.enemybar.style.display = "block";
+      currentlvl = 1
+      const level = new Level(1);
+      this.playerhealth.value = 100;
+      let refreshdamage = setInterval(this.playerdamage, 1000);
+      intervals.push(refreshdamage);
     });
 
     this.input.addEventListener("keyup", this.inputhandler)
@@ -72,8 +75,9 @@ export default class Game {
   playerdamage() {
     this.playerhealth = document.querySelector(".player-bar");
     let enemydamage = currentlvl * 10 + 5
+    this.playerhealth.value -= enemydamage
     if (this.playerhealth.value <= 0) {
-      alert("You lost!")
+      console.log("L")
     }
   }
 }
