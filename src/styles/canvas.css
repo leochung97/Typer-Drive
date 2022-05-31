@@ -67,6 +67,7 @@ input:focus {
 
 .player-health-bar {
   box-sizing: border-box;
+  display: none;
   margin-top: 10px;
   margin-left: 10px;
   width: 400px;
@@ -105,6 +106,7 @@ input:focus {
 
 .enemy-health-bar {
   box-sizing: border-box;
+  display: none;
   margin-top: 10px;
   margin-right: 10px;
   width: 400px;

@@ -7,8 +7,9 @@ export default class Game {
     this.input = document.querySelector("#input");
     this.word = document.querySelector("#word");
     this.start = document.querySelector("#start-button");
+    this.playerhp = document.querySelector(".player-health-bar");
+    this.enemyhp = document.querySelector(".enemy-health-bar");
     this.started = false;
-    this.currentLevel = 1;
   }
 
   newword() {
@@ -23,12 +24,16 @@ export default class Game {
         this.started = true;
         this.newword();
         this.input.placeholder = "Type Here!"
+        this.playerhp.style.display = "block"
+        this.enemyhp.style.display = "block"
         this.currentLevel = 1;
         this.startLevel(this.currentLevel)
       } else {
         this.start.innerText = "Restart"
         this.started = true;
         this.newword();
+        this.playerhp.style.display = "block"
+        this.enemyhp.style.display = "block"
         this.input.placeholder = "Type Here!"
         this.currentLevel = 1;
         this.startLevel(this.currentLevel)
