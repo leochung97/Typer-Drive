@@ -1,12 +1,13 @@
 import Dictionary from "./dictionary.js";
-import Input from "./input.js"
+import Input from "./input.js";
 import Level from "./level.js";
+import Sprite from "./sprite.js";
 
 let currentlvl = 1;
 let intervals = [];
 
 export default class Game {  
-  constructor(c) {
+  constructor() {
     this.input = document.querySelector("#input");
     this.word = document.querySelector("#word");
     this.start = document.querySelector("#start-button");
@@ -34,18 +35,25 @@ export default class Game {
         intervals.forEach(clearInterval);
       }
       
-      this.newword();
-      this.input.placeholder = "Type Here!";
-      this.playerbar.style.display = "block";
-      this.enemybar.style.display = "block";
-      currentlvl = 1
-      const level = new Level(1);
-      this.playerhealth.value = 100;
-      let refreshdamage = setInterval(this.playerdamage, 1000);
-      intervals.push(refreshdamage);
+      this.renderEntities(this.ctx);
+      this.setup();
+      
     });
 
     this.input.addEventListener("keyup", this.inputhandler)
+  }
+
+  setup() {
+    this.playerhealth.value = 100;
+    currentlvl = 1
+    const level = new Level(1);
+    this.newword();
+    this.input.placeholder = "Type Here!";
+    this.playerbar.style.display = "block";
+    this.enemybar.style.display = "block";
+    clearInterval(timedplayerdamage);
+    let timedplayerdamage = setInterval(this.playerdamage, 5000);
+    intervals.push(timedplayerdamage);
   }
 
   inputhandler(e) {
@@ -59,6 +67,7 @@ export default class Game {
 
         // ENEMY DAMAGE
         this.enemyhealth = document.querySelector(".enemy-bar");
+        this.playerhealth = document.querySelector(".player-bar");
         let damage = Math.floor(Math.random() * (100 - 20) + 25);
         console.log(damage);
         this.enemyhealth.value -= damage;
@@ -67,6 +76,7 @@ export default class Game {
         if (enemyhealth <= 0) {
           currentlvl += 1;
           inputs.startLevel(currentlvl);
+          this.playerhealth.value += 15;
         }
       }
     }
@@ -74,10 +84,23 @@ export default class Game {
 
   playerdamage() {
     this.playerhealth = document.querySelector(".player-bar");
-    let enemydamage = currentlvl * 10 + 5
-    this.playerhealth.value -= enemydamage
+    let enemydamage = (currentlvl * 2) + 3;
+    this.playerhealth.value -= enemydamage;
+    console.log(enemydamage);
     if (this.playerhealth.value <= 0) {
       console.log("L")
+      intervals.forEach(clearInterval);
     }
+  }
+
+  renderEntities() {
+    const player = new Sprite({
+      position: {x: 0, y: 0},
+      imageSrc: "../../assets/player/Idle.png",
+      scale: 1,
+      framesMax: 8,
+      // sprites: null
+    });
+    player.draw();
   }
 }
