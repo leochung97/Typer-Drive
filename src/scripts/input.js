@@ -1,3 +1,5 @@
+import Level from "./level.js"
+
 export default class Input {
   constructor() {
     this.input = document.querySelector("#input")
@@ -12,6 +14,10 @@ export default class Input {
       correct = false;
     }
     return correct;
+  }
+
+  startLevel(currentlvl) {
+    return new Level(currentlvl);
   }
 
   addEventListeners() {

@@ -23,6 +23,30 @@ input:focus {
   position: relative;
 }
 
+progress::-webkit-progress-bar {
+  background-color: #ff6766;
+}
+
+progress::-webkit-progress-value {
+  background-color: #ADD8E6;
+}
+
+progress {
+  text-align: center;
+  width: 100%;
+  border: none;
+  position: inherit;
+}
+
+progress:before {
+  content: attr(data-label);
+  font-size: larger;
+  vertical-align: 0;
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
 #input {
   font-family: 'VT323';
   display: block;
@@ -77,11 +101,9 @@ input:focus {
 }
 
 .player-bar {
-  background: yellow;
   width: 100%;
   height: 40px;
   position: relative;
-  transition: width .5s linear;
   color: black;
 }
 
@@ -111,12 +133,12 @@ input:focus {
   margin-right: 10px;
   width: 400px;
   height: 40px;
-  background: darkgray;
   position: relative;
 }
 
 .enemy-bar {
   background: red;
+  color: black;
   width: 100%;
   height: 40px;
   position: relative;
