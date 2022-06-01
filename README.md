@@ -1,12 +1,12 @@
-# Typer-Drive
+# Typer Drive
 
-[Note-to-Draft: Live Link](#)
+[Play Typer Drive](https://leochung97.github.io/Typer-Drive/)
 
 ## Background
 
 Typer Drive is a simple typing-based combat game. The goal is to type up randomly generated words quickly and accurately. Typed up words will deal damage to randomly generated enemies and bosses.
 
-The goal of Typer Drive is to train players to type faster in an enjoyable manner. There are many other features that allow the player to enjoy the combat and gameplay as defined in Functionality & MVPs.
+The goal of Typer Drive is to teach players to type faster in an enjoyable manner. There are many other features that allow the player to enjoy the combat and gameplay as defined in Functionality & MVPs.
 
 ## Functionality and MVPs
 
@@ -40,4 +40,16 @@ Implement underlying logic of game.
 
 ## Music
 Music Credits:
-[HyeNRG - Back 2 Me](https://soundcloud.com/hyenrg/tracks)
+[](#)
+
+## Sprites
+Player Sprite Credits:
+[](#)
+Enemy Sprite Credits:
+[](#)
+Background Sprite Credits:
+[](#)
+
+## Other Resources
+Random Words Dictionary Credits:
+[Random Words API](#)

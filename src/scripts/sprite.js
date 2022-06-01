@@ -7,7 +7,7 @@ export default class Sprite {
     framesCurrent = 0,
     holdFramesFor = 8,
     offset = {x: 0, y: 0},
-    sprites
+    animations
   }) {
     this.position = position;
     this.image = new Image();
@@ -18,7 +18,7 @@ export default class Sprite {
     this.totalFrames = 0;
     this.holdFramesFor = holdFramesFor;
     this.offset = offset;
-    this.sprites = sprites;
+    this.animations = animations;
   }
 
   update(ctx) {
@@ -27,7 +27,6 @@ export default class Sprite {
     if (this.totalFrames % this.holdFramesFor === 0) {
       this.framesCurrent = (this.framesCurrent + 1) % this.framesMax;
     }
-    
   }
 
   draw(ctx) {
@@ -42,5 +41,9 @@ export default class Sprite {
       this.image.width / this.framesMax * this.scale,
       this.image.height * this.scale
     );
+  }
+
+  switchAnim(animation) {
+    
   }
 }
