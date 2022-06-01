@@ -5,7 +5,7 @@ export default class Sprite {
     scale = 1,
     framesMax = 1,
     framesCurrent = 0,
-    holdFramesFor = 8,
+    holdFramesFor = 4,
     offset = {x: 0, y: 0},
     animations
   }) {

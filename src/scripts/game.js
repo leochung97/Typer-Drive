@@ -4,6 +4,8 @@ import Level from "./level.js";
 import Sprite from "./sprite.js"
 
 let currentlvl = 1;
+let wordsEntered = 0;
+let enemiesDefeated = 0;
 let intervals = [];
 
 export default class Game {  
@@ -13,8 +15,11 @@ export default class Game {
     this.start = document.querySelector("#start-button");
     this.playerbar = document.querySelector(".player-health-bar");
     this.enemybar = document.querySelector(".enemy-health-bar");
-    this.playerhealth = document.querySelector(".player-bar")
-    this.enemyhealth = document.querySelector(".enemy-bar")
+    this.playerhealth = document.querySelector(".player-bar");
+    this.enemyhealth = document.querySelector(".enemy-bar");
+    this.losspop = document.querySelector("#losspopup");
+    this.wordsEntered = document.querySelector("#wordcount");
+    this.enemiesDefeated = document.querySelector("#enemycount");
     this.started = false;
   }
 
@@ -35,6 +40,7 @@ export default class Game {
         intervals.forEach(clearInterval);
       }
       this.setup();
+      this.losspop.classList.remove("active");
     });
 
     this.input.addEventListener("keyup", this.inputhandler)
@@ -42,14 +48,16 @@ export default class Game {
 
   setup() {
     this.playerhealth.value = 100;
-    currentlvl = 1
+    currentlvl = 1;
+    wordsEntered = 0;
+    enemiesDefeated = 0;
     new Level(1);
     this.newword();
     this.input.placeholder = "Type Here!";
     this.playerbar.style.display = "block";
     this.enemybar.style.display = "block";
     clearInterval(timedplayerdamage);
-    let timedplayerdamage = setInterval(this.playerdamage, 5000);
+    let timedplayerdamage = setInterval(this.playerdamage.bind(this), 5000);
     intervals.push(timedplayerdamage);
   }
 
@@ -58,6 +66,8 @@ export default class Game {
     if (e.keyCode === 13) {
       if (inputs.check()) {
         // WORD RESET
+        wordsEntered += 1;
+        console.log(wordsEntered);
         this.value = "";
         let newword = Dictionary[Math.floor(Math.random() * Dictionary.length)];        
         document.querySelector("#word").innerText = newword;
@@ -65,13 +75,13 @@ export default class Game {
         // ENEMY DAMAGE
         this.enemyhealth = document.querySelector(".enemy-bar");
         this.playerhealth = document.querySelector(".player-bar");
-        let damage = Math.floor(Math.random() * (100 - 20) + 25);
-        console.log(damage);
+        let damage = Math.floor(Math.random() * (50 - 25) + 25);
         this.enemyhealth.value -= damage;
 
         let enemyhealth = this.enemyhealth.value;
         if (enemyhealth <= 0) {
           currentlvl += 1;
+          enemiesDefeated += 1;
           inputs.startLevel(currentlvl);
           this.playerhealth.value += 15;
         }
@@ -80,12 +90,12 @@ export default class Game {
   }
 
   playerdamage() {
-    this.playerhealth = document.querySelector(".player-bar");
-    let enemydamage = (currentlvl * 2) + 3;
+    let enemydamage = (currentlvl * 2) + 25;
     this.playerhealth.value -= enemydamage;
-    console.log(enemydamage);
     if (this.playerhealth.value <= 0) {
-      console.log("L");
+      this.losspop.classList.add("active");
+      this.wordsEntered.innerHTML = wordsEntered;
+      this.enemiesDefeated.innerHTML = enemiesDefeated;
       intervals.forEach(clearInterval);
     }
   }
@@ -96,9 +106,9 @@ background.src = "../assets/background.png"
 
 let player = new Sprite({
   position: { x: -175, y: 0 },
-  imageSrc: "../../assets/player/idle.png",
+  imageSrc: "../../assets/player/attack1.png",
   scale: 4,
-  framesMax: 11,
+  framesMax: 7,
   offset: { x: 0, y: 0 },
   animations: {
     idle: {
