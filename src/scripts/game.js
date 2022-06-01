@@ -90,7 +90,7 @@ export default class Game {
   }
 
   playerdamage() {
-    let enemydamage = (currentlvl * 2) + 25;
+    let enemydamage = (currentlvl * 2) + 3;
     this.playerhealth.value -= enemydamage;
     if (this.playerhealth.value <= 0) {
       this.losspop.classList.add("active");
@@ -112,19 +112,19 @@ let player = new Sprite({
   offset: { x: 0, y: 0 },
   animations: {
     idle: {
-      imageSrc: "../assets/player/Idle.png",
+      imageSrc: "../../assets/player/Idle.png",
       framesMax: 11
     },
     attack1: {
-      imageSrc: "../assets/player/Attack1.png",
+      imageSrc: "../../assets/player/Attack1.png",
       framesMax: 7
     },
     death: {
-      imageSrc: "../assets/player/Death.png",
+      imageSrc: "../../assets/player/Death.png",
       framesMax: 11
     },
     hit: {
-      imageSrc: "../assets/player/Take Hit.png",
+      imageSrc: "../../assets/player/TakeHit.png",
       framesMax: 4
     }
   },
@@ -132,25 +132,25 @@ let player = new Sprite({
 
 let enemy = new Sprite({
   position: { x: 575, y: 55 },
-  imageSrc: "../../assets/enemies/Wizard/Idle.png",
+  imageSrc: "../../assets/wizard/Idle.png",
   scale: 4,
   framesMax: 8,
   offset: { x: 0, y: 0 },
   animations: {
     idle: {
-      imageSrc: "../assets/enemies/Wizard/Idle.png",
+      imageSrc: "../../assets/Wizard/Idle.png",
       framesMax: 8
     },
     attack1: {
-      imageSrc: "../assets/enemies/Wizard/Attack1.png",
+      imageSrc: "../../assets/Wizard/Attack1.png",
       framesMax: 8
     },
     death: {
-      imageSrc: "../assets/enemies/Wizard/Death.png",
+      imageSrc: "../../assets/Wizard/Death.png",
       framesMax: 5
     },
     hit: {
-      imageSrc: "../assets/enemies/Wizard/Take Hit.png",
+      imageSrc: "../../assets/Wizard/TakeHit.png",
       framesMax: 4
     }
   },
