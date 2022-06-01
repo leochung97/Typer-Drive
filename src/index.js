@@ -1,5 +1,6 @@
 import Game from "./scripts/game.js"
 import Music from "./scripts/music.js"
+import Instruction from "./scripts/instruction.js"
 import { animate } from "./scripts/game.js"
 
 let background = new Image();
@@ -20,22 +21,10 @@ document.addEventListener("DOMContentLoaded", function () {
   let music = new Music();
   music.addEventListeners();
 
+  let instruction = new Instruction();
+  instruction.addEventListeners();
+
   animate();
-
-  const open = document.querySelector("#instructions-button");
-  const close = document.querySelector("#instructions-exit");
-  const instructions = document.querySelector("#instructions");
-  
-  function openPopup(instructions) {
-    instructions.classList.add("active");
-  }
-
-  function closePopup(instructions) {
-    instructions.classList.remove("active");
-  }
-
-  open.addEventListener("click", openPopup(instructions));
-  close.addEventListener("click", console.log("CLICKED OUT"));
 });
 
 
