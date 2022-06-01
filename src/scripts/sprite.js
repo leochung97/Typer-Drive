@@ -22,6 +22,19 @@ export default class Sprite {
     this.sprites = sprites;
   }
 
+  update() {
+    this.draw()
+    this.framesElapsed++
+
+    if (this.framesElapsed % this.framesHold === 0) {
+      if (this.framesCurrent < this.framesMax - 1) {
+        this.framesCurrent += 1
+      } else {
+        this.framesCurrent = 0
+      }
+    }
+  }
+
   draw() {
     this.image.onload = this.drawBound.bind(this);
     this.drawBound();
@@ -42,18 +55,7 @@ export default class Sprite {
     );
   }
 
-  update() {
-    this.draw()
-    this.framesElapsed++
 
-    if (this.framesElapsed % this.framesHold === 0) {
-      if (this.framesCurrent < this.framesMax - 1) {
-        this.framesCurrent++
-      } else {
-        this.framesCurrent = 0
-      }
-    }
-  }
 }
 
 // class Sprite {

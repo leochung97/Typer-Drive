@@ -1,7 +1,6 @@
 import Dictionary from "./dictionary.js";
 import Input from "./input.js";
 import Level from "./level.js";
-import Sprite from "./sprite.js";
 
 let currentlvl = 1;
 let intervals = [];
@@ -35,10 +34,7 @@ export default class Game {
         intervals.forEach(clearInterval);
       }
       
-      this.createEntities();
-      // this.animate();
       this.setup();
-      
     });
 
     this.input.addEventListener("keyup", this.inputhandler)
@@ -47,7 +43,7 @@ export default class Game {
   setup() {
     this.playerhealth.value = 100;
     currentlvl = 1
-    const level = new Level(1);
+    new Level(1);
     this.newword();
     this.input.placeholder = "Type Here!";
     this.playerbar.style.display = "block";
@@ -92,34 +88,5 @@ export default class Game {
       console.log("L")
       intervals.forEach(clearInterval);
     }
-  }
-
-  createEntities() {
-    const player = new Sprite({
-      position: {x: -175, y: 0},
-      imageSrc: "../../assets/player/Idle.png",
-      scale: 4,
-      framesMax: 11,
-      offset: {x: 0, y: 0},
-      // sprites: null
-    });
-
-    const enemy = new Sprite({
-      position: {x: 575, y: 55},
-      imageSrc: "../../assets/enemies/Wizard/Idle.png",
-      scale: 4,
-      framesMax: 8,
-      offset: {x: 0, y:0}
-    });
-
-    player.update()
-    enemy.update()
-  }
-
-  animate() {
-    let canvas = document.querySelector("canvas");
-    let ctx = canvas.getContext("2d");
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    requestAnimationFrame(animate);
   }
 }
