@@ -35,7 +35,8 @@ export default class Game {
         intervals.forEach(clearInterval);
       }
       
-      this.renderEntities(this.ctx);
+      this.createEntities();
+      // this.animate();
       this.setup();
       
     });
@@ -93,14 +94,32 @@ export default class Game {
     }
   }
 
-  renderEntities() {
+  createEntities() {
     const player = new Sprite({
-      position: {x: 0, y: 0},
+      position: {x: -175, y: 0},
       imageSrc: "../../assets/player/Idle.png",
-      scale: 1,
-      framesMax: 8,
+      scale: 4,
+      framesMax: 11,
+      offset: {x: 0, y: 0},
       // sprites: null
     });
-    player.draw();
+
+    const enemy = new Sprite({
+      position: {x: 575, y: 55},
+      imageSrc: "../../assets/enemies/Wizard/Idle.png",
+      scale: 4,
+      framesMax: 8,
+      offset: {x: 0, y:0}
+    });
+
+    player.update()
+    enemy.update()
+  }
+
+  animate() {
+    let canvas = document.querySelector("canvas");
+    let ctx = canvas.getContext("2d");
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    requestAnimationFrame(animate);
   }
 }

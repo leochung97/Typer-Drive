@@ -4,19 +4,22 @@ export default class Sprite {
     imageSrc,
     scale = 1,
     framesMax = 1,
-    offset
+    framesCurrent = 0,
+    framesElapsed = 0,
+    framesHeld = 5,
+    offset = {x: 0, y: 0},
+    sprites
   }) {
     this.position = position;
-    this.width = 50;
-    this.height = 150;
     this.image = new Image();
     this.image.src = imageSrc;
     this.scale = scale;
     this.framesMax = framesMax;
-    this.framesCurrent = 0;
-    this.framesElapsed = 0;
-    this.framesHold = 5;
+    this.framesCurrent = framesCurrent;
+    this.framesElapsed = framesElapsed;
+    this.framesHeld = framesHeld;
     this.offset = offset;
+    this.sprites = sprites;
   }
 
   draw() {
@@ -26,26 +29,21 @@ export default class Sprite {
 
   drawBound() {
     let ctx = document.querySelector("canvas").getContext("2d");
-    console.log(this);
     ctx.drawImage(
       this.image,
       this.framesCurrent * (this.image.width / this.framesMax),
       0,
-      this.imagewidth / this.framesMax,
+      this.image.width / this.framesMax,
       this.image.height,
-      this.position.x,
-      this.position.y,
-      (this.image.width / this.framesMax) * this.scale,
-      this.image.height * this.scale
+      this.position.x - this.offset.x,
+      this.position.y - this.offset.y,
+      this.image.width / this.framesMax * this.scale,
+      this.image.height * this.scale,
     );
   }
 
   update() {
     this.draw()
-    this.animateFrames();
-  }
-
-  animateFrames() {
     this.framesElapsed++
 
     if (this.framesElapsed % this.framesHold === 0) {
@@ -57,6 +55,59 @@ export default class Sprite {
     }
   }
 }
+
+// class Sprite {
+//   constructor({
+//     position,
+//     imageSrc,
+//     scale = 1,
+//     framesMax = 1,
+//     offset = { x: 0, y: 0 }
+//   }) {
+//     this.position = position
+//     this.width = 50
+//     this.height = 150
+//     this.image = new Image()
+//     this.image.src = imageSrc
+//     this.scale = scale
+//     this.framesMax = framesMax
+//     this.framesCurrent = 0
+//     this.framesElapsed = 0
+//     this.framesHold = 5
+//     this.offset = offset
+//   }
+
+//   draw() {
+//     c.drawImage(
+//       this.image,
+//       this.framesCurrent * (this.image.width / this.framesMax),
+//       0,
+//       this.image.width / this.framesMax,
+//       this.image.height,
+//       this.position.x - this.offset.x,
+//       this.position.y - this.offset.y,
+//       (this.image.width / this.framesMax) * this.scale,
+//       this.image.height * this.scale
+//     )
+//   }
+
+//   animateFrames() {
+//     this.framesElapsed++
+
+//     if (this.framesElapsed % this.framesHold === 0) {
+//       if (this.framesCurrent < this.framesMax - 1) {
+//         this.framesCurrent++
+//       } else {
+//         this.framesCurrent = 0
+//       }
+//     }
+//   }
+
+//   update() {
+//     this.draw()
+//     this.animateFrames()
+//   }
+// }
 
 // class Fighter extends Sprite {
 //   constructor({
@@ -138,6 +189,8 @@ export default class Sprite {
 //   }
 
 //   takeHit() {
+//     this.health -= 20
+
 //     if (this.health <= 0) {
 //       this.switchSprite('death')
 //     } else this.switchSprite('takeHit')
@@ -172,19 +225,33 @@ export default class Sprite {
 //           this.framesCurrent = 0
 //         }
 //         break
+//       case 'run':
+//         if (this.image !== this.sprites.run.image) {
+//           this.image = this.sprites.run.image
+//           this.framesMax = this.sprites.run.framesMax
+//           this.framesCurrent = 0
+//         }
+//         break
+//       case 'jump':
+//         if (this.image !== this.sprites.jump.image) {
+//           this.image = this.sprites.jump.image
+//           this.framesMax = this.sprites.jump.framesMax
+//           this.framesCurrent = 0
+//         }
+//         break
+
+//       case 'fall':
+//         if (this.image !== this.sprites.fall.image) {
+//           this.image = this.sprites.fall.image
+//           this.framesMax = this.sprites.fall.framesMax
+//           this.framesCurrent = 0
+//         }
+//         break
 
 //       case 'attack1':
 //         if (this.image !== this.sprites.attack1.image) {
 //           this.image = this.sprites.attack1.image
 //           this.framesMax = this.sprites.attack1.framesMax
-//           this.framesCurrent = 0
-//         }
-//         break
-
-//       case 'attack2':
-//         if (this.image !== this.sprites.attack2.image) {
-//           this.image = this.sprites.attack2.image
-//           this.framesMax = this.sprites.attack2.framesMax
 //           this.framesCurrent = 0
 //         }
 //         break
