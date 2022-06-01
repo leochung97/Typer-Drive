@@ -58,8 +58,8 @@ export default class Sprite {
       }
     }
 
-    if (this.image === this.animations.attack1.image && 
-      this.framesCurrent < this.animations.attack1.framesMax - 1) {
+    if (this.image === this.animations.attack.image && 
+      this.framesCurrent < this.animations.attack.framesMax - 1) {
       return
     }
     
@@ -76,7 +76,7 @@ export default class Sprite {
           this.framesCurrent = 0;
         }
         break;
-      case 'attack1':
+      case 'attack':
         if (this.image !== this.animations.attack1.image) {
           this.image = this.animations.attack1.image;
           this.framesMax = this.animations.attack1.framesMax;

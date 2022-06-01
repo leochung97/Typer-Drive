@@ -104,6 +104,8 @@ export default class Game {
 let background = new Image();
 background.src = "../../assets/images/background.png"
 
+
+
 const player = new Sprite({
   position: { x: -175, y: 0 },
   imageSrc: "../../assets/images/player_idle.png",
