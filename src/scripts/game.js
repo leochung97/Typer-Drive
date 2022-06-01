@@ -1,6 +1,7 @@
 import Dictionary from "./dictionary.js";
 import Input from "./input.js";
 import Level from "./level.js";
+import Sprite from "./sprite.js"
 
 let currentlvl = 1;
 let intervals = [];
@@ -89,3 +90,68 @@ export default class Game {
     }
   }
 }
+
+let background = new Image();
+background.src = "../assets/background.png"
+
+let player = new Sprite({
+  position: { x: -175, y: 0 },
+  imageSrc: "../../assets/player/idle.png",
+  scale: 4,
+  framesMax: 11,
+  offset: { x: 0, y: 0 },
+  animations: {
+    idle: {
+      imageSrc: "../assets/player/Idle.png",
+      framesMax: 11
+    },
+    attack1: {
+      imageSrc: "../assets/player/Attack1.png",
+      framesMax: 7
+    },
+    death: {
+      imageSrc: "../assets/player/Death.png",
+      framesMax: 11
+    },
+    hit: {
+      imageSrc: "../assets/player/Take Hit.png",
+      framesMax: 4
+    }
+  },
+});
+
+let enemy = new Sprite({
+  position: { x: 575, y: 55 },
+  imageSrc: "../../assets/enemies/Wizard/Idle.png",
+  scale: 4,
+  framesMax: 8,
+  offset: { x: 0, y: 0 },
+  animations: {
+    idle: {
+      imageSrc: "../assets/enemies/Wizard/Idle.png",
+      framesMax: 8
+    },
+    attack1: {
+      imageSrc: "../assets/enemies/Wizard/Attack1.png",
+      framesMax: 8
+    },
+    death: {
+      imageSrc: "../assets/enemies/Wizard/Death.png",
+      framesMax: 5
+    },
+    hit: {
+      imageSrc: "../assets/enemies/Wizard/Take Hit.png",
+      framesMax: 4
+    }
+  },
+});
+
+export function animate() {
+  const canvas = document.querySelector('canvas');
+  const ctx = canvas.getContext('2d');
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.drawImage(background, -1510, -150);
+  player.update(ctx);
+  enemy.update(ctx);
+  requestAnimationFrame(animate);
+};

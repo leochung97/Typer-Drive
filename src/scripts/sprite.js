@@ -19,13 +19,16 @@ export default class Sprite {
     this.holdFramesFor = holdFramesFor;
     this.offset = offset;
     this.animations = animations;
+    this.dead = false;
   }
 
   update(ctx) {
     this.draw(ctx);
-    this.totalFrames += 1;
-    if (this.totalFrames % this.holdFramesFor === 0) {
-      this.framesCurrent = (this.framesCurrent + 1) % this.framesMax;
+    if (!this.dead) {
+      this.totalFrames += 1;
+      if (this.totalFrames % this.holdFramesFor === 0) {
+        this.framesCurrent = (this.framesCurrent + 1) % this.framesMax;
+      }
     }
   }
 
@@ -42,8 +45,53 @@ export default class Sprite {
       this.image.height * this.scale
     );
   }
-
+  
   switchAnim(animation) {
+    if (this.image === this.animations.death.image) {
+      if (this.framesCurrent === this.animations.death.framesMax - 1) {
+        this.dead = true;
+      }
+    }
+
+    if (this.image === this.animations.attack1.image && 
+      this.framesCurrent < this.animations.attack1.framesMax - 1) {
+      return
+    }
     
+    if (this.image === this.animations.hit.image && 
+      this.framesCurrent < this.animations.hit.framesMax - 1) {
+      return
+    }
+
+    switch(animation) {
+      case 'idle':
+        if (this.image !== this.animations.idle.image) {
+          this.image = this.animations.idle.image;
+          this.framesMax = this.animations.idle.framesMax;
+          this.framesCurrent = 0;
+        }
+        break;
+      case 'attack1':
+        if (this.image !== this.animations.attack1.image) {
+          this.image = this.animations.attack1.image;
+          this.framesMax = this.animations.attack1.framesMax;
+          this.framesCurrent = 0;
+        }
+        break;
+      case 'death':
+        if (this.image !== this.animations.death.image) {
+          this.image = this.animations.death.image;
+          this.framesMax = this.animations.death.framesMax;
+          this.framesCurrent = 0;
+        }
+        break;
+      case 'hit':
+        if (this.image !== this.animations.hit.image) {
+          this.image = this.animations.hit.image;
+          this.framesMax = this.animations.hit.framesMax;
+          this.framesCurrent = 0;
+        }
+        break;
+    }
   }
 }

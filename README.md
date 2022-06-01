@@ -1,6 +1,6 @@
 # Typer Drive
 
-[Play Typer Drive](https://leochung97.github.io/Typer-Drive/)
+[Typer Drive Demo](https://leochung97.github.io/Typer-Drive/)
 
 ## Background
 
