@@ -3,17 +3,12 @@ import Music from "./scripts/music.js"
 import Instruction from "./scripts/instruction.js"
 import { animate } from "./scripts/game.js"
 
-let background = new Image();
-background.src = "../assets/background.png"
-
 document.addEventListener("DOMContentLoaded", function () {
   const canvas = document.querySelector('canvas');
   const ctx = canvas.getContext('2d');
 
   canvas.width = 1080;
   canvas.height = 550;
-
-  ctx.drawImage(background, -1510, -150);
 
   let game = new Game();
   game.addEventListeners();

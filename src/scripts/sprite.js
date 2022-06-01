@@ -20,6 +20,11 @@ export default class Sprite {
     this.offset = offset;
     this.animations = animations;
     this.dead = false;
+
+    for (let anim in this.animations) {
+      animations[anim].image = new Image()
+      animations[anim].image.src = animations[anim].imageSrc
+    }
   }
 
   update(ctx) {
@@ -46,7 +51,7 @@ export default class Sprite {
     );
   }
   
-  switchAnim(animation) {
+  switchAnim(anim) {
     if (this.image === this.animations.death.image) {
       if (this.framesCurrent === this.animations.death.framesMax - 1) {
         this.dead = true;
@@ -63,7 +68,7 @@ export default class Sprite {
       return
     }
 
-    switch(animation) {
+    switch(anim) {
       case 'idle':
         if (this.image !== this.animations.idle.image) {
           this.image = this.animations.idle.image;
