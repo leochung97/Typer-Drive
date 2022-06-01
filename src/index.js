@@ -7,11 +7,32 @@ background.src = "../assets/background.png"
 
 let player = new Sprite({
   position: { x: -175, y: 0 },
-  imageSrc: "../../assets/player/Idle.png",
+  imageSrc: "../../assets/player/idle.png",
   scale: 4,
   framesMax: 11,
   offset: { x: 0, y: 0 },
-      // sprites: null
+  animations: {
+    idle: {
+      imageSrc: "../assets/player/Idle.png",
+      framesMax: 11
+    },
+    attack1: {
+      imageSrc: "../assets/player/Attack1.png",
+      framesMax: 7
+    },
+    attack2: {
+      imageSrc: "../assets/player/Attack1.png",
+      framesMax: 7
+    },
+    death: {
+      imageSrc: "../assets/player/Death.png",
+      framesMax: 11
+    },
+    hit: {
+      imageSrc: "../assets/player/Take Hit.png",
+      framesMax: 4
+    }
+  },
 });
 
 let enemy = new Sprite({
@@ -19,8 +40,40 @@ let enemy = new Sprite({
   imageSrc: "../../assets/enemies/Wizard/Idle.png",
   scale: 4,
   framesMax: 8,
-  offset: { x: 0, y: 0 }
+  offset: { x: 0, y: 0 },
+  animations: {
+    idle: {
+      imageSrc: './img/kenji/Idle.png',
+      framesMax: 4
+    },
+    run: {
+      imageSrc: './img/kenji/Run.png',
+      framesMax: 8
+    },
+    jump: {
+      imageSrc: './img/kenji/Jump.png',
+      framesMax: 2
+    },
+    fall: {
+      imageSrc: './img/kenji/Fall.png',
+      framesMax: 2
+    },
+    attack1: {
+      imageSrc: './img/kenji/Attack1.png',
+      framesMax: 4
+    },
+    takeHit: {
+      imageSrc: './img/kenji/Take hit.png',
+      framesMax: 3
+    },
+    death: {
+      imageSrc: './img/kenji/Death.png',
+      framesMax: 7
+    }
+  },
 });
+
+
 
 document.addEventListener("DOMContentLoaded", function () {
   const canvas = document.querySelector('canvas');
@@ -38,8 +91,8 @@ document.addEventListener("DOMContentLoaded", function () {
   function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.drawImage(background, -1510, -150);
-    player.update();
-    enemy.update();
+    player.update(ctx);
+    enemy.update(ctx);
     requestAnimationFrame(animate);
   };
 

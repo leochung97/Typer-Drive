@@ -33,7 +33,6 @@ export default class Game {
         this.started = true;
         intervals.forEach(clearInterval);
       }
-      
       this.setup();
     });
 
@@ -85,7 +84,7 @@ export default class Game {
     this.playerhealth.value -= enemydamage;
     console.log(enemydamage);
     if (this.playerhealth.value <= 0) {
-      console.log("L")
+      console.log("L");
       intervals.forEach(clearInterval);
     }
   }
