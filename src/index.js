@@ -21,36 +21,3 @@ document.addEventListener("DOMContentLoaded", function () {
 
   animate();
 });
-
-function loadImages(arr, callback) {
-  let images = {};
-  let loadedImageCount = 0;
-
-  for (let i = 0; i < arr.length; i++) {
-    let img = new Image();
-    img.onload = imageLoaded;
-    img.src = arr[i];
-    images[arr[i]] = img;
-  }
-
-  function imageLoaded(e) {
-    loadedImageCount++;
-    if (loadedImageCount >= arr.length) {
-      callback();
-    }
-  }
-}
-
-let loader = loadImages([
-  "../assets/images/background.png",
-  "../assets/images/enemy_attack.png",
-  "../assets/images/enemy_death.png",
-  "../assets/images/enemy_hit.png",
-  "../assets/images/enemy_idle.png",
-  "../assets/images/player_attack.png",
-  "../assets/images/player_death.png",
-  "../assets/images/player_hit.png",
-  "../assets/images/player_idle.png"
-], function() {
-  console.log("loaded");
-})

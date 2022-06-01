@@ -47,6 +47,7 @@ export default class Game {
   }
 
   setup() {
+    player.switchAnim('idle');
     this.playerhealth.value = 100;
     currentlvl = 1;
     wordsEntered = 0;
@@ -66,6 +67,7 @@ export default class Game {
     if (e.keyCode === 13) {
       if (inputs.check()) {
         // WORD RESET
+        player.switchAnim('attack');
         wordsEntered += 1;
         this.value = "";
         let newword = Dictionary[Math.floor(Math.random() * Dictionary.length)];        
@@ -76,57 +78,58 @@ export default class Game {
         this.playerhealth = document.querySelector(".player-bar");
         let damage = Math.floor(Math.random() * (50 - 25) + 25);
         this.enemyhealth.value -= damage;
+        enemy.switchAnim('hit');
 
         let enemyhealth = this.enemyhealth.value;
         if (enemyhealth <= 0) {
-          enemy.switchAnim('death');
           currentlvl += 1;
           enemiesDefeated += 1;
           inputs.startLevel(currentlvl);
           this.playerhealth.value += 15;
         }
-      }
-    }
+      } 
+    } else {player.switchAnim('idle')}
   }
 
   playerdamage() {
     let enemydamage = (currentlvl * 2) + 50;
     this.playerhealth.value -= enemydamage;
+    enemy.switchAnim('attack');
+
     if (this.playerhealth.value <= 0) {
+      player.switchAnim('death');
       this.losspop.classList.add("active");
       this.wordsEntered.innerHTML = wordsEntered;
       this.enemiesDefeated.innerHTML = enemiesDefeated;
       intervals.forEach(clearInterval);
-    }
+    } else { player.switchAnim('hit') }
   }
 }
 
 let background = new Image();
-background.src = "../../assets/images/background.png"
-
-
+background.src = "/src/images/background.png"
 
 const player = new Sprite({
   position: { x: -175, y: 0 },
-  imageSrc: "../../assets/images/player_idle.png",
+  imageSrc: "/src/images/player_idle.png",
   scale: 4,
   framesMax: 11,
   offset: { x: 0, y: 0 },
   animations: {
     idle: {
-      imageSrc: "../../assets/images/player_idle.png",
+      imageSrc: "/src/images/player_idle.png",
       framesMax: 11
     },
     attack: {
-      imageSrc: "../../assets/images/player_attack.png",
+      imageSrc: "/src/images/player_attack.png",
       framesMax: 7
     },
     death: {
-      imageSrc: "../../assets/images/player_death.png",
+      imageSrc: "/src/images/player_death.png",
       framesMax: 11
     },
     hit: {
-      imageSrc: "../../assets/images/player_hit.png",
+      imageSrc: "/src/images/player_hit.png",
       framesMax: 4
     }
   }
@@ -134,25 +137,25 @@ const player = new Sprite({
 
 const enemy = new Sprite({
   position: { x: 575, y: 55 },
-  imageSrc: "../../assets/images/enemy_idle.png",
+  imageSrc: "/src/images/enemy_idle.png",
   scale: 4,
   framesMax: 8,
   offset: { x: 0, y: 0 },
   animations: {
     idle: {
-      imageSrc: "../../assets/images/enemy_idle.png",
+      imageSrc: "/src/images/enemy_idle.png",
       framesMax: 8
     },
     attack: {
-      imageSrc: "../../assets/images/enemy_attack.png",
+      imageSrc: "/src/images/enemy_attack.png",
       framesMax: 8
     },
     death: {
-      imageSrc: "../../assets/images/enemy_death.png",
+      imageSrc: "/src/images/enemy_death.png",
       framesMax: 5
     },
     hit: {
-      imageSrc: "../../assets/images/enemy_hit.png",
+      imageSrc: "/src/images/enemy_hit.png",
       framesMax: 4
     }
   }

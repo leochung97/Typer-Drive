@@ -5,7 +5,7 @@ export default class Sprite {
     scale = 1,
     framesMax = 1,
     framesCurrent = 0,
-    holdFramesFor = 4,
+    holdFramesFor = 8,
     offset = {x: 0, y: 0},
     animations
   }) {
@@ -77,9 +77,9 @@ export default class Sprite {
         }
         break;
       case 'attack':
-        if (this.image !== this.animations.attack1.image) {
-          this.image = this.animations.attack1.image;
-          this.framesMax = this.animations.attack1.framesMax;
+        if (this.image !== this.animations.attack.image) {
+          this.image = this.animations.attack.image;
+          this.framesMax = this.animations.attack.framesMax;
           this.framesCurrent = 0;
         }
         break;
