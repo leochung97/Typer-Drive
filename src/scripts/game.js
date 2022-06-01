@@ -106,9 +106,9 @@ background.src = "../assets/background.png"
 
 let player = new Sprite({
   position: { x: -175, y: 0 },
-  imageSrc: "../../assets/player/attack1.png",
+  imageSrc: "../../assets/player/Idle.png",
   scale: 4,
-  framesMax: 7,
+  framesMax: 11,
   offset: { x: 0, y: 0 },
   animations: {
     idle: {
@@ -160,7 +160,9 @@ export function animate() {
   const canvas = document.querySelector('canvas');
   const ctx = canvas.getContext('2d');
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.drawImage(background, -1510, -150);
+  background.onload = function() {
+    ctx.drawImage(background, -1510, -150);
+  }
   player.update(ctx);
   enemy.update(ctx);
   requestAnimationFrame(animate);
