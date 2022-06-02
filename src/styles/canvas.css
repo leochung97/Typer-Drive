@@ -77,18 +77,18 @@ progress:before {
 .losspopup {
   display: flexbox;
   position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0);
-    border: 2px solid #ff6766;
-    border-radius: 10px;
-    background-color: black;
-    width: 450px;
-    height: 250px;
-    max-width: 100%;
-    font-size: 36px;
-    font-weight: bolder;
-    padding: 10px 10px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  border: 2px solid #ff6766;
+  border-radius: 10px;
+  background-color: black;
+  width: 450px;
+  height: 250px;
+  max-width: 100%;
+  font-size: 36px;
+  font-weight: bolder;
+  padding: 10px 10px;
 }
 
 .losspopup > * {

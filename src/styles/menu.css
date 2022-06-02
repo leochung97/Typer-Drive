@@ -55,7 +55,7 @@ input[type="reset"] {
 
 .instructions.active {
   transform: translate(-50%, -50%) scale(1);
-  z-index: 3;
+  z-index: 4;
 }
 
 .instructions-header {
