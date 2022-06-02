@@ -40,15 +40,12 @@ Implement underlying logic of game.
 
 ## Music
 Music Credits:
-[](#)
+[Ansimuz](https://ansimuz.itch.io/cyberpunk-street-environment)
 
 ## Sprites
-Player Sprite Credits:
-[](#)
-Enemy Sprite Credits:
-[](#)
-Background Sprite Credits:
-[](#)
+- Player Sprite Credits: [Luizmelo](https://luizmelo.itch.io/hero-knight)
+- Enemy Sprite Credits: [Luizmelo](https://luizmelo.itch.io/evil-wizard)
+- Background Sprite Credits:[Ansimuz](https://ansimuz.itch.io/warped-miami-synth)
 
 ## Other Resources
 Random Words Dictionary Credits:

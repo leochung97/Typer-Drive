@@ -5,7 +5,7 @@ export default class Sprite {
     scale = 1,
     framesMax = 1,
     framesCurrent = 0,
-    holdFramesFor = 8,
+    holdFramesFor = 5,
     offset = {x: 0, y: 0},
     animations
   }) {
@@ -29,10 +29,13 @@ export default class Sprite {
 
   update(ctx) {
     this.draw(ctx);
-    if (!this.dead) {
-      this.totalFrames += 1;
-      if (this.totalFrames % this.holdFramesFor === 0) {
-        this.framesCurrent = (this.framesCurrent + 1) % this.framesMax;
+    
+    this.totalFrames += 1;
+    if (this.totalFrames % this.holdFramesFor === 0) {
+      if (this.framesCurrent < this.framesMax - 1) {
+        this.framesCurrent += 1;
+      } else {
+        this.framesCurrent = 0;
       }
     }
   }
@@ -58,15 +61,15 @@ export default class Sprite {
       }
     }
 
-    if (this.image === this.animations.attack.image && 
-      this.framesCurrent < this.animations.attack.framesMax - 1) {
-      return
-    }
+    if (
+      this.image === this.animations.attack.image &&
+      this.framesCurrent < this.animations.attack.framesMax - 1
+    ) return
     
-    if (this.image === this.animations.hit.image && 
-      this.framesCurrent < this.animations.hit.framesMax - 1) {
-      return
-    }
+    if (
+      this.image === this.animations.hit.image && 
+      this.framesCurrent < this.animations.hit.framesMax - 1
+    ) return
 
     switch(anim) {
       case 'idle':

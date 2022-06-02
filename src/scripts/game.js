@@ -41,13 +41,14 @@ export default class Game {
       }
       this.setup();
       this.losspop.classList.remove("active");
+      player.switchAnim('idle');
+      enemy.switchAnim('idle');
     });
 
     this.input.addEventListener("keyup", this.inputhandler)
   }
 
   setup() {
-    player.switchAnim('idle');
     this.playerhealth.value = 100;
     currentlvl = 1;
     wordsEntered = 0;
@@ -73,7 +74,7 @@ export default class Game {
         let newword = Dictionary[Math.floor(Math.random() * Dictionary.length)];        
         document.querySelector("#word").innerText = newword;
 
-        // ENEMY DAMAGE
+        // ENEMY TAKES DAMAGE
         this.enemyhealth = document.querySelector(".enemy-bar");
         this.playerhealth = document.querySelector(".player-bar");
         let damage = Math.floor(Math.random() * (50 - 25) + 25);
@@ -86,13 +87,17 @@ export default class Game {
           enemiesDefeated += 1;
           inputs.startLevel(currentlvl);
           this.playerhealth.value += 15;
+          enemy.switchAnim('death');
         }
       } 
-    } else {player.switchAnim('idle')}
+    } else {
+      player.switchAnim('idle');
+      enemy.switchAnim('idle');
+    }
   }
 
   playerdamage() {
-    let enemydamage = (currentlvl * 2) + 50;
+    let enemydamage = (currentlvl * 2) + 5;
     this.playerhealth.value -= enemydamage;
     enemy.switchAnim('attack');
 
@@ -107,29 +112,29 @@ export default class Game {
 }
 
 let background = new Image();
-background.src = "/src/images/background.png"
+background.src = "./src/images/background.png"
 
 const player = new Sprite({
   position: { x: -175, y: 0 },
-  imageSrc: "/src/images/player_idle.png",
+  imageSrc: "./src/images/player_idle.png",
   scale: 4,
   framesMax: 11,
   offset: { x: 0, y: 0 },
   animations: {
     idle: {
-      imageSrc: "/src/images/player_idle.png",
+      imageSrc: "./src/images/player_idle.png",
       framesMax: 11
     },
     attack: {
-      imageSrc: "/src/images/player_attack.png",
+      imageSrc: "./src/images/player_attack.png",
       framesMax: 7
     },
     death: {
-      imageSrc: "/src/images/player_death.png",
+      imageSrc: "./src/images/player_death.png",
       framesMax: 11
     },
     hit: {
-      imageSrc: "/src/images/player_hit.png",
+      imageSrc: "./src/images/player_hit.png",
       framesMax: 4
     }
   }
@@ -137,25 +142,25 @@ const player = new Sprite({
 
 const enemy = new Sprite({
   position: { x: 575, y: 55 },
-  imageSrc: "/src/images/enemy_idle.png",
+  imageSrc: "./src/images/enemy_idle.png",
   scale: 4,
   framesMax: 8,
   offset: { x: 0, y: 0 },
   animations: {
     idle: {
-      imageSrc: "/src/images/enemy_idle.png",
+      imageSrc: "./src/images/enemy_idle.png",
       framesMax: 8
     },
     attack: {
-      imageSrc: "/src/images/enemy_attack.png",
+      imageSrc: "./src/images/enemy_attack.png",
       framesMax: 8
     },
     death: {
-      imageSrc: "/src/images/enemy_death.png",
+      imageSrc: "./src/images/enemy_death.png",
       framesMax: 5
     },
     hit: {
-      imageSrc: "/src/images/enemy_hit.png",
+      imageSrc: "./src/images/enemy_hit.png",
       framesMax: 4
     }
   }
