@@ -1,6 +1,6 @@
 # Typer Drive
 
-[Typer Drive Demo](https://leochung97.github.io/Typer-Drive/)
+[Play Typer Drive](https://leochung97.github.io/Typer-Drive/)
 
 ## Background
 
@@ -45,15 +45,17 @@ The project was implemented using the following technologies:
 - Music Credits: [Ansimuz](https://ansimuz.itch.io/cyberpunk-street-environment)
 
 ## Sprites
-- Player Sprite Credits: [Luizmelo](https://luizmelo.itch.io/fantasy-warrior)
+Player Sprite Credits:
+- Fantasy Warrior: [Luizmelo](https://luizmelo.itch.io/fantasy-warrior)
 
 Enemy Sprite Credits:
-- Enemy Knight: [Luizmelo](https://luizmelo.itch.io/hero-knight)
-- Enemy Huntress: [Luizmelo](https://luizmelo.itch.io/huntress)
-- Enemy Evil Wizard Credits: [Luizmelo](https://luizmelo.itch.io/evil-wizard)
-- Enemy Evil Wizard 2 Credits: [Luizmelo](https://luizmelo.itch.io/evil-wizard-2)
+- Hero Knight: [Luizmelo](https://luizmelo.itch.io/hero-knight)
+- Huntress: [Luizmelo](https://luizmelo.itch.io/huntress)
+- Evil Wizard: [Luizmelo](https://luizmelo.itch.io/evil-wizard)
+- Evil Wizard 2: [Luizmelo](https://luizmelo.itch.io/evil-wizard-2)
 
-- Background Sprite Credits: [Ansimuz](https://ansimuz.itch.io/warped-miami-synth)
+Background Sprite Credits:
+- Warped Miami Synth: [Ansimuz](https://ansimuz.itch.io/warped-miami-synth)
 
 ## Other Resources
 - Random Words Dictionary Credits: [Random Words API](#)
