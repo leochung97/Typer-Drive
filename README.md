@@ -4,7 +4,7 @@
 
 ## Background
 
-![Game Screen]()
+![Game Screen](https://github.com/leochung97/Typer-Drive/blob/main/assets/screenshot.png)
 
 Typer Drive is a simple typing-based combat game. The goal is to type up randomly generated words quickly and accurately. Typed up words will deal damage to randomly generated enemies and bosses.
 
