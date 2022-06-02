@@ -2,7 +2,7 @@ import Level from "./level.js"
 
 export default class Input {
   constructor() {
-    this.input = document.querySelector("#input")
+    this.input = document.querySelector("#input");
   }
 
   check() {

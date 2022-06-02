@@ -61,15 +61,15 @@ export default class Sprite {
       }
     }
 
-    if (
-      this.image === this.animations.attack.image &&
-      this.framesCurrent < this.animations.attack.framesMax - 1
-    ) return
-    
-    if (
-      this.image === this.animations.hit.image && 
-      this.framesCurrent < this.animations.hit.framesMax - 1
-    ) return
+    // if (
+    //   this.image === this.animations.attack.image &&
+    //   this.framesCurrent < this.animations.attack.framesMax - 1
+    // ) return;
+
+    // if (
+    //   this.image === this.animations.hit.image &&
+    //   this.framesCurrent < this.animations.hit.framesMax - 1
+    // ) return;
 
     switch(anim) {
       case 'idle':

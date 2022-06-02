@@ -39,34 +39,42 @@ export default class Game {
         this.started = true;
         intervals.forEach(clearInterval);
       }
+
       this.setup();
       this.losspop.classList.remove("active");
-      player.switchAnim('idle');
-      enemy.switchAnim('idle');
     });
 
     this.input.addEventListener("keyup", this.inputhandler)
   }
 
   setup() {
+    // Game Setup
     this.playerhealth.value = 100;
     currentlvl = 1;
     wordsEntered = 0;
     enemiesDefeated = 0;
     new Level(1);
-    this.newword();
-    this.input.placeholder = "Type Here!";
-    this.playerbar.style.display = "block";
-    this.enemybar.style.display = "block";
     clearInterval(timedplayerdamage);
     let timedplayerdamage = setInterval(this.playerdamage.bind(this), 1000);
     intervals.push(timedplayerdamage);
+
+    // Word Setup
+    this.newword();
+    this.input.placeholder = "Type Here!";
+    this.input.focus();
+
+    // Display Setup
+    this.playerbar.style.display = "block";
+    this.enemybar.style.display = "block";
+    player.switchAnim('idle');
+    enemy.switchAnim('idle');
   }
 
   playerdamage() {
     let enemydamage = (currentlvl * 2);
     this.playerhealth.value -= enemydamage;
     enemy.switchAnim('attack');
+    enemy.switchAnim('idle');
 
     if (this.playerhealth.value <= 0) {
       player.switchAnim('death');
@@ -76,7 +84,10 @@ export default class Game {
       this.wordsEntered.innerHTML = wordsEntered;
       this.enemiesDefeated.innerHTML = enemiesDefeated;
       intervals.forEach(clearInterval);
-    } else { player.switchAnim('hit') }
+    } else { 
+      player.switchAnim('hit');
+      player.switchAnim('idle');
+    }
   }
 
   inputhandler(e) {
@@ -108,7 +119,6 @@ export default class Game {
       } 
     } else {
       player.switchAnim('idle');
-      enemy.switchAnim('idle');
     }
   }
 

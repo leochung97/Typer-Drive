@@ -79,7 +79,7 @@ progress:before {
   position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -40%) scale(0);
+    transform: translate(-50%, -50%) scale(0);
     border: 2px solid #ff6766;
     border-radius: 10px;
     background-color: black;
@@ -101,7 +101,7 @@ progress:before {
 }
 
 .losspopup.active {
-  transform: translate(-50%, -40%) scale(1);
+  transform: translate(-50%, -50%) scale(1);
   z-index: 3;
 }
 
