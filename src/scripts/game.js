@@ -72,7 +72,7 @@ export default class Game {
   }
 
   playerdamage() {
-    let enemydamage = (currentlvl * 2);
+    let enemydamage = (currentlvl * 0.5);
     this.playerhealth.value -= enemydamage;
     enemy.switchAnim('attack');
     enemy.switchAnim('idle');
@@ -122,8 +122,6 @@ export default class Game {
       player.switchAnim('idle');
     }
   }
-
-
 }
 
 let background = new Image();
