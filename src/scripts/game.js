@@ -59,8 +59,24 @@ export default class Game {
     this.playerbar.style.display = "block";
     this.enemybar.style.display = "block";
     clearInterval(timedplayerdamage);
-    let timedplayerdamage = setInterval(this.playerdamage.bind(this), 5000);
+    let timedplayerdamage = setInterval(this.playerdamage.bind(this), 1000);
     intervals.push(timedplayerdamage);
+  }
+
+  playerdamage() {
+    let enemydamage = (currentlvl * 2);
+    this.playerhealth.value -= enemydamage;
+    enemy.switchAnim('attack');
+
+    if (this.playerhealth.value <= 0) {
+      player.switchAnim('death');
+      player.dead = true;
+      enemy.dead = true;
+      this.losspop.classList.add("active");
+      this.wordsEntered.innerHTML = wordsEntered;
+      this.enemiesDefeated.innerHTML = enemiesDefeated;
+      intervals.forEach(clearInterval);
+    } else { player.switchAnim('hit') }
   }
 
   inputhandler(e) {
@@ -96,19 +112,7 @@ export default class Game {
     }
   }
 
-  playerdamage() {
-    let enemydamage = (currentlvl * 2) + 5;
-    this.playerhealth.value -= enemydamage;
-    enemy.switchAnim('attack');
 
-    if (this.playerhealth.value <= 0) {
-      player.switchAnim('death');
-      this.losspop.classList.add("active");
-      this.wordsEntered.innerHTML = wordsEntered;
-      this.enemiesDefeated.innerHTML = enemiesDefeated;
-      intervals.forEach(clearInterval);
-    } else { player.switchAnim('hit') }
-  }
 }
 
 let background = new Image();

@@ -12,14 +12,15 @@ The goal of Typer Drive is to teach players to type faster in an enjoyable manne
 
 In Typer Drive, players will be able to:
 - Start a new game and mute any sounds from the game
-- Type up randomly generated words to deal damage to enemies and bosses
+- Type up randomly generated words to deal damage to enemies
 - Lose the game if they are too slow at defeating the enemy
-- Progressively face more difficult enemies
+- Fight against an infinite amount of enemies
+- See their score in terms of words typed and enemies defeated
 - Become faster and more accurate at typing!
 
 ## Wireframes
 
-The game will mostly take up the player's browser tab in the following format. 
+This game will take place in the player's browser and offer simple navigation buttons for Instructions, Starting / Restarting the Game, and Muting / Playing sound. The game will also feature links to my GitHub and LinkedIn profile.
 
 ![Wireframe](https://github.com/leochung97/Typer-Drive/blob/main/assets/Wireframe.png)
 
@@ -33,10 +34,10 @@ The project was implemented using the following technologies:
 
 ## Implementation Timeline
 
-- Friday & Weekend: Setup project, including getting webpack up and running.
-Implement underlying logic of game.
+- Friday: Setup project, including getting webpack up and running.
+- Weekend: Begin implementing the logic of the game.
 - Monday & Tuesday: Implement animations and finalize visuals of the game.
-- Wednesday: Add any additional features or finalize remaining MVPs.
+- Wednesday: Reformat and correct bugs.
 
 ## Music
 Music Credits:
@@ -48,5 +49,5 @@ Music Credits:
 - Background Sprite Credits:[Ansimuz](https://ansimuz.itch.io/warped-miami-synth)
 
 ## Other Resources
-Random Words Dictionary Credits:
-[Random Words API](#)
+- Random Words Dictionary Credits: [Random Words API](#)
+- Font: [VT323](https://fonts.google.com/specimen/VT323)
