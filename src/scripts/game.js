@@ -61,6 +61,7 @@ export default class Game {
     // Word Setup
     this.newword();
     this.input.placeholder = "Type Here!";
+    this.input.value = "";
     this.input.focus();
 
     // Display Setup
