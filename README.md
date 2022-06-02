@@ -18,7 +18,7 @@ In Typer Drive, players will be able to:
 - See their score in terms of words typed and enemies defeated
 - Become faster and more accurate at typing!
 
-## Wireframes
+## Wireframe
 
 This game will take place in the player's browser and offer simple navigation buttons for Instructions, Starting / Restarting the Game, and Muting / Playing sound. The game will also feature links to my GitHub and LinkedIn profile.
 
@@ -40,13 +40,12 @@ The project was implemented using the following technologies:
 - Wednesday: Reformat and correct bugs.
 
 ## Music
-Music Credits:
-[Ansimuz](https://ansimuz.itch.io/cyberpunk-street-environment)
+- Music Credits: [Ansimuz](https://ansimuz.itch.io/cyberpunk-street-environment)
 
 ## Sprites
 - Player Sprite Credits: [Luizmelo](https://luizmelo.itch.io/hero-knight)
 - Enemy Sprite Credits: [Luizmelo](https://luizmelo.itch.io/evil-wizard)
-- Background Sprite Credits:[Ansimuz](https://ansimuz.itch.io/warped-miami-synth)
+- Background Sprite Credits: [Ansimuz](https://ansimuz.itch.io/warped-miami-synth)
 
 ## Other Resources
 - Random Words Dictionary Credits: [Random Words API](#)
