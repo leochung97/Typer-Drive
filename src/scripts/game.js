@@ -1,12 +1,16 @@
 import Dictionary from "./dictionary.js";
 import Input from "./input.js";
 import Level from "./level.js";
-import Sprite from "./sprite.js"
+import Sprite from "./sprite.js";
+import { playerSprite, enemySprites } from "./characters.js";
 
 let currentlvl = 1;
 let wordsEntered = 0;
 let enemiesDefeated = 0;
 let intervals = [];
+
+let player = playerSprite;
+let enemy = enemySprites[Math.floor(Math.random() * enemySprites.length)];
 
 export default class Game {  
   constructor() {
@@ -20,7 +24,6 @@ export default class Game {
     this.losspop = document.querySelector("#losspopup");
     this.wordsEntered = document.querySelector("#wordcount");
     this.enemiesDefeated = document.querySelector("#enemycount");
-    this.started = false;
   }
 
   newword() {
@@ -30,16 +33,8 @@ export default class Game {
 
   addEventListeners() {
     this.start.addEventListener("click", (event) => {
-      if (!this.started) {
-        this.start.innerText = "Restart"
-        this.started = true;
-        intervals.forEach(clearInterval);
-      } else {
-        this.start.innerText = "Restart"
-        this.started = true;
-        intervals.forEach(clearInterval);
-      }
-
+      this.start.innerText = "Restart"
+      intervals.forEach(clearInterval);
       this.setup();
       this.losspop.classList.remove("active");
     });
@@ -55,7 +50,7 @@ export default class Game {
     enemiesDefeated = 0;
     new Level(1);
     clearInterval(timedplayerdamage);
-    let timedplayerdamage = setInterval(this.playerdamage.bind(this), 1000);
+    let timedplayerdamage = setInterval(this.playerdamage.bind(this), 2500);
     intervals.push(timedplayerdamage);
 
     // Word Setup
@@ -74,20 +69,16 @@ export default class Game {
   playerdamage() {
     let enemydamage = (currentlvl * 0.5);
     this.playerhealth.value -= enemydamage;
-    enemy.switchAnim('attack');
-    enemy.switchAnim('idle');
+    setTimeout(enemy.switchAnim('attack'), 500);
 
     if (this.playerhealth.value <= 0) {
       player.switchAnim('death');
-      player.dead = true;
-      enemy.dead = true;
       this.losspop.classList.add("active");
       this.wordsEntered.innerHTML = wordsEntered;
       this.enemiesDefeated.innerHTML = enemiesDefeated;
       intervals.forEach(clearInterval);
     } else { 
       player.switchAnim('hit');
-      player.switchAnim('idle');
     }
   }
 
@@ -99,7 +90,7 @@ export default class Game {
         player.switchAnim('attack');
         wordsEntered += 1;
         this.value = "";
-        let newword = Dictionary[Math.floor(Math.random() * Dictionary.length)];        
+        let newword = Dictionary[Math.floor(Math.random() * Dictionary.length)];
         document.querySelector("#word").innerText = newword;
 
         // ENEMY TAKES DAMAGE
@@ -107,7 +98,7 @@ export default class Game {
         this.playerhealth = document.querySelector(".player-bar");
         let damage = Math.floor(Math.random() * (50 - 25) + 25);
         this.enemyhealth.value -= damage;
-        enemy.switchAnim('hit');
+        setTimeout(enemy.switchAnim('hit'), 500);
 
         let enemyhealth = this.enemyhealth.value;
         if (enemyhealth <= 0) {
@@ -115,7 +106,8 @@ export default class Game {
           enemiesDefeated += 1;
           inputs.startLevel(currentlvl);
           this.playerhealth.value += 15;
-          enemy.switchAnim('death');
+          setTimeout(enemy.switchAnim('death'), 500);
+          enemy = enemySprites[Math.floor(Math.random() * enemySprites.length)];
         }
       } 
     } else {
@@ -127,58 +119,6 @@ export default class Game {
 let background = new Image();
 background.src = "./src/images/background.png"
 
-const player = new Sprite({
-  position: { x: -175, y: 0 },
-  imageSrc: "./src/images/player_idle.png",
-  scale: 4,
-  framesMax: 11,
-  offset: { x: 0, y: 0 },
-  animations: {
-    idle: {
-      imageSrc: "./src/images/player_idle.png",
-      framesMax: 11
-    },
-    attack: {
-      imageSrc: "./src/images/player_attack.png",
-      framesMax: 7
-    },
-    death: {
-      imageSrc: "./src/images/player_death.png",
-      framesMax: 11
-    },
-    hit: {
-      imageSrc: "./src/images/player_hit.png",
-      framesMax: 4
-    }
-  }
-});
-
-const enemy = new Sprite({
-  position: { x: 575, y: 55 },
-  imageSrc: "./src/images/enemy_idle.png",
-  scale: 4,
-  framesMax: 8,
-  offset: { x: 0, y: 0 },
-  animations: {
-    idle: {
-      imageSrc: "./src/images/enemy_idle.png",
-      framesMax: 8
-    },
-    attack: {
-      imageSrc: "./src/images/enemy_attack.png",
-      framesMax: 8
-    },
-    death: {
-      imageSrc: "./src/images/enemy_death.png",
-      framesMax: 5
-    },
-    hit: {
-      imageSrc: "./src/images/enemy_hit.png",
-      framesMax: 4
-    }
-  }
-});
-
 export function animate() {
   const canvas = document.querySelector('canvas');
   const ctx = canvas.getContext('2d');
@@ -187,7 +127,7 @@ export function animate() {
   ctx.drawImage(background, -1510, -150);
 
   player.update(ctx);
-  enemy.update(ctx);
+  enemy.revUpdate(ctx);
 
   requestAnimationFrame(animate);
 };

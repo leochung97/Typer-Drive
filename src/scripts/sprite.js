@@ -5,8 +5,7 @@ export default class Sprite {
     scale = 1,
     framesMax = 1,
     framesCurrent = 0,
-    holdFramesFor = 5,
-    offset = {x: 0, y: 0},
+    holdFramesFor = 4,
     animations
   }) {
     this.position = position;
@@ -17,7 +16,6 @@ export default class Sprite {
     this.framesCurrent = framesCurrent;
     this.totalFrames = 0;
     this.holdFramesFor = holdFramesFor;
-    this.offset = offset;
     this.animations = animations;
     this.dead = false;
 
@@ -47,8 +45,35 @@ export default class Sprite {
       0,
       this.image.width / this.framesMax,
       this.image.height,
-      this.position.x - this.offset.x,
-      this.position.y - this.offset.y,
+      this.position.x,
+      this.position.y,
+      this.image.width / this.framesMax * this.scale,
+      this.image.height * this.scale
+    );
+  }
+
+  revUpdate(ctx) {
+    this.revDraw(ctx);
+
+    this.totalFrames += 1;
+    if (this.totalFrames % this.holdFramesFor === 0) {
+      if (this.framesCurrent < this.framesMax - 1) {
+        this.framesCurrent += 1;
+      } else {
+        this.framesCurrent = 0;
+      }
+    }
+  }
+
+  revDraw(ctx) {
+    ctx.drawImage(
+      this.image,
+      (this.framesMax - 1 - this.framesCurrent) * (this.image.width / this.framesMax),
+      0,
+      this.image.width / this.framesMax,
+      this.image.height,
+      this.position.x,
+      this.position.y,
       this.image.width / this.framesMax * this.scale,
       this.image.height * this.scale
     );
