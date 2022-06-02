@@ -8,15 +8,15 @@ export default class Music {
 
   addEventListeners() {
     this.toggle.addEventListener("click", (event) => {
-      if (!this.muted) {
+      if (this.muted) {
         this.music.currentTime = 0;
         this.music.play();
         this.toggle.innerText = "Mute Music";
-        this.muted = true;
+        this.muted = false;
       } else {
         this.music.pause();
         this.toggle.innerText = "Play Music";
-        this.muted = false;
+        this.muted = true;
       }
     });
   };
