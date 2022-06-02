@@ -4,6 +4,8 @@
 
 ## Background
 
+![Game Screen]()
+
 Typer Drive is a simple typing-based combat game. The goal is to type up randomly generated words quickly and accurately. Typed up words will deal damage to randomly generated enemies and bosses.
 
 The goal of Typer Drive is to teach players to type faster in an enjoyable manner. There are many other features that allow the player to enjoy the combat and gameplay as defined in Functionality & MVPs.
@@ -43,8 +45,14 @@ The project was implemented using the following technologies:
 - Music Credits: [Ansimuz](https://ansimuz.itch.io/cyberpunk-street-environment)
 
 ## Sprites
-- Player Sprite Credits: [Luizmelo](https://luizmelo.itch.io/hero-knight)
-- Enemy Sprite Credits: [Luizmelo](https://luizmelo.itch.io/evil-wizard)
+- Player Sprite Credits: [Luizmelo](https://luizmelo.itch.io/fantasy-warrior)
+
+Enemy Sprite Credits:
+- Enemy Knight: [Luizmelo](https://luizmelo.itch.io/hero-knight)
+- Enemy Huntress: [Luizmelo](https://luizmelo.itch.io/huntress)
+- Enemy Evil Wizard Credits: [Luizmelo](https://luizmelo.itch.io/evil-wizard)
+- Enemy Evil Wizard 2 Credits: [Luizmelo](https://luizmelo.itch.io/evil-wizard-2)
+
 - Background Sprite Credits: [Ansimuz](https://ansimuz.itch.io/warped-miami-synth)
 
 ## Other Resources

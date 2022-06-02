@@ -11,11 +11,11 @@ export default class Music {
       if (!this.muted) {
         this.music.currentTime = 0;
         this.music.play();
-        this.toggle.innerText = "Mute";
+        this.toggle.innerText = "Mute Music";
         this.muted = true;
       } else {
         this.music.pause();
-        this.toggle.innerText = "Play";
+        this.toggle.innerText = "Play Music";
         this.muted = false;
       }
     });
